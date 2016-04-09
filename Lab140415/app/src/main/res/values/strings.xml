@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lab140415</string>
+    <string name="uno">1</string>
+    <string name="perdue">x2</string>
+    <string name="divisodue">/2</string>
+    <string name="logdue">log2</string>
+    <string name="blu">blu</string>
+    <string name="rosso">rosso</string>
+    <string name="verde">verde</string>
+    <string name="bianco">bianco</string>
+</resources>

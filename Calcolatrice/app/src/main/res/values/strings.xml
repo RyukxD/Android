@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Calcolatrice</string>
+    <string name="nove">9</string>
+    <string name="otto">8</string>
+    <string name="sette">7</string>
+    <string name="sei">6</string>
+    <string name="cinque">5</string>
+    <string name="quattro">4</string>
+    <string name="tre">3</string>
+    <string name="due">2</string>
+    <string name="uno">1</string>
+    <string name="zero">0</string>
+    <string name="punto">.</string>
+    <string name="cancella">C</string>
+    <string name="sottrazione">-</string>
+    <string name="addizione">+</string>
+    <string name="divisione">/</string>
+    <string name="moltiplicazione">X</string>
+    <string name="risultato">=</string>
+</resources>

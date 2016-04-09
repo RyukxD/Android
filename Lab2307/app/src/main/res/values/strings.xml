@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab2307</string>
+    <string name="somma">Somma</string>
+    <string name="moltiplicazione">Prodotto</string>
+    <string name="incremento">+</string>
+    <string name="decremento">-</string>
+    <string name="inizio">0</string>
+</resources>
