@@ -69,13 +69,20 @@ public class MiniSudoku extends AppCompatActivity {
     public void check(View v){
         this.tv.setText("");
         for(int c = 0;c<this.grid.getRowCount();c++)
-            if(((Button)this.grid.getChildAt(c)).getText().toString().equals(((Button)this.grid.getChildAt(c+3)).getText().toString())
+            if(!empty() || ((Button)this.grid.getChildAt(c)).getText().toString().equals(((Button)this.grid.getChildAt(c+3)).getText().toString())
                     || ((Button)this.grid.getChildAt(c)).getText().toString().equals(((Button)this.grid.getChildAt(c+6)).getText().toString())
                     || ((Button)this.grid.getChildAt(c*3)).getText().toString().equals(((Button)this.grid.getChildAt((c*3)+1)).getText().toString())
                     || ((Button)this.grid.getChildAt(c*3)).getText().toString().equals(((Button)this.grid.getChildAt((c*3)+2)).getText().toString())
                     || ((Button)this.grid.getChildAt(c+3)).getText().toString().equals(((Button)this.grid.getChildAt(c+6)).getText().toString())
                     || ((Button)this.grid.getChildAt((c*3)+1)).getText().toString().equals(((Button)this.grid.getChildAt((c*3)+2)).getText().toString()))
                 this.tv.setText("Configurazione non legale");
+    }
+
+    private boolean empty(){
+        for(int c = 0; c<this.grid.getChildCount();c++)
+            if(((Button)this.grid.getChildAt(c)).getText().toString().isEmpty())
+                return false;
+        return true;
     }
 
 
