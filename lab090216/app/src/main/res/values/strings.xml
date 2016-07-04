@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab090216</string>
+    <string name="left">&lt;</string>
+    <string name="right">&gt;</string>
+    <string name="counter">Passaggi: </string>
+    <string name="countervalue">0</string>
+
+</resources>
