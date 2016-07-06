@@ -1,8 +1,6 @@
 package com.example.angelo.lab090216;
 
-import android.graphics.drawable.shapes.Shape;
-import android.os.Debug;
-import android.os.StrictMode;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,21 +39,58 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void move(View v) {
-        String direct = String.valueOf(((Button)findViewById(v.getId())).getText());
-        if (direct.equals(">"))
-            animation(this.shape.getMove());
-        else
-            animation(-1*(this.shape.getMove()));
+        String direct = String.valueOf(((Button)v).getText());
+        v.setEnabled(false);
+        final Button b = (Button) v;
+        if (direct.equals(">")) {
+            this.animation = new TranslateAnimation(0,(this.shape.getMove() - (this.shape.getDimension()*2)),0,0);
+            this.animation.setDuration(100);
+            this.animation.setFillAfter(true);
+            this.animation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
 
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    (((RelativeLayout) b.getParent()).getChildAt(1)).setEnabled(true);
+                    shape.setMyX((shape.getMove() - (shape.getDimension()*2)));
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            this.shape.startAnimation(animation);
+        }
+        else {
+            this.animation = new TranslateAnimation(0,-1 * (this.shape.getMove() - (this.shape.getDimension()*2)),0,0);
+            this.animation.setDuration(100);
+            this.animation.setFillAfter(true);
+            this.animation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    (((RelativeLayout) b.getParent()).getChildAt(0)).setEnabled(true);
+                    shape.setMyX(-1 * (shape.getMove() - (shape.getDimension()*2)));
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            this.shape.startAnimation(animation);
+        }
+
+        this.container.invalidate();
         this.tx.setText(String.valueOf((Integer.valueOf(tx.getText().toString())+1)));
-    }
-
-    private void animation(int move) {
-        this.animation = new TranslateAnimation(0,move,0,0);
-        this.animation.setDuration(1000);
-        this.animation.setFillAfter(true);
-        this.shape.startAnimation(animation);
-        this.shape.setX(move);
     }
 
 

@@ -17,7 +17,8 @@ public class MyShape extends View {
     public MyShape(Context context, int x, int y) {
         super(context);
 
-        this.x = x;
+        this.dimension = x/20;
+        this.x = x - dimension;
         this.y = y/2;
         this.dimension = x/20;
         this.move = x;
@@ -32,7 +33,7 @@ public class MyShape extends View {
         canvas.drawCircle(this.x,this.y,this.dimension,this.paint);
     }
 
-    public void setX(int x) {
+    public void setMyX(int x) {
         this.x += x;
     }
 
@@ -42,5 +43,9 @@ public class MyShape extends View {
 
     public int getDimension() {
         return dimension;
+    }
+
+    public int getMyx(){
+        return this.x;
     }
 }
